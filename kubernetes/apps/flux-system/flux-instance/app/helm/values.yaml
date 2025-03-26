@@ -12,6 +12,6 @@ instance:
     - notification-controller
   sync:
     kind: GitRepository
-    url: "https://github.com/chrtol/cluster-template.git"
+    url: "https://github.com/chrtol/home-ops.git"
     ref: "refs/heads/main"
     path: kubernetes/flux/cluster
