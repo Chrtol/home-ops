@@ -21,11 +21,10 @@ cniConfig:
 nodes:
   - hostname: "lenovo3-talos-01"
     ipAddress: "10.0.1.101"
-    installDiskSelector:
-      serial: "sda"
+    installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/d3dc673627e9b94c6cd4122289aa52c2484cddb31017ae21b75309846e257d30
+    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -35,17 +34,16 @@ nodes:
           - "10.0.1.101/22"
         routes:
           - network: "0.0.0.0/0"
-            gateway: "10.0.0.1"
+            gateway: "10.0.1.254"
         mtu: 1500
         vip:
           ip: "10.0.2.100"
   - hostname: "lenovo2-talos-01"
     ipAddress: "10.0.1.102"
-    installDiskSelector:
-      serial: "sda"
+    installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/d3dc673627e9b94c6cd4122289aa52c2484cddb31017ae21b75309846e257d30
+    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -55,17 +53,16 @@ nodes:
           - "10.0.1.102/22"
         routes:
           - network: "0.0.0.0/0"
-            gateway: "10.0.0.1"
+            gateway: "10.0.1.254"
         mtu: 1500
         vip:
           ip: "10.0.2.100"
   - hostname: "lenovo1-talos-01"
     ipAddress: "10.0.1.103"
-    installDiskSelector:
-      serial: "sda"
+    installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/d3dc673627e9b94c6cd4122289aa52c2484cddb31017ae21b75309846e257d30
+    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -75,7 +72,7 @@ nodes:
           - "10.0.1.103/22"
         routes:
           - network: "0.0.0.0/0"
-            gateway: "10.0.0.1"
+            gateway: "10.0.1.254"
         mtu: 1500
         vip:
           ip: "10.0.2.100"
