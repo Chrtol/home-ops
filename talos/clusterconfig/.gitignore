@@ -2,3 +2,5 @@ kubernetes-lenovo3-talos-01.yaml
 kubernetes-lenovo2-talos-01.yaml
 kubernetes-lenovo1-talos-01.yaml
 talosconfig
+kubernetes-lenovo4-talos-01.yaml
+kubernetes-dell1-talos-01.yaml
