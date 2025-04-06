@@ -9,6 +9,7 @@ spec:
   chartRef:
       kind: OCIRepository
       name: external-dns
+      namespace: flux-system
   # chart:
   #   spec:
   #     chart: external-dns
