@@ -33,9 +33,14 @@ spec:
               TUNNEL_ORIGIN_ENABLE_HTTP2: true
               TUNNEL_POST_QUANTUM: true
               TUNNEL_TRANSPORT_PROTOCOL: quic
-            envFrom:
-              - secretRef:
-                  name: cloudflared-secret
+              TUNNEL_TOKEN:
+                valueFrom:
+                  secretKeyRef:
+                    name: cloudflared-secret # Name of your K8s Secret
+                    key: TUNNEL_TOKEN       # Key within the Secret
+            # envFrom:
+            #   - secretRef:
+            #       name: cloudflared-secret
             args: ["tunnel", "run"]
             probes:
               liveness: &probes
