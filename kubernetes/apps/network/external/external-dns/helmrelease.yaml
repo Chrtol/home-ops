@@ -20,10 +20,12 @@ spec:
   #       name: external-dns
   #       namespace: flux-system
   install:
+    timeout: 10m
     disableSchemaValidation: true
     remediation:
       retries: 3
   upgrade:
+    timeout: 10m
     cleanupOnFail: true
     disableSchemaValidation: true # Ref: https://github.com/kubernetes-sigs/external-dns/issues/5206
     remediation:
