@@ -4,7 +4,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app rook-ceph
-  namespace: &namespace rook-ceph
+  namespace: &namespace flux-system
 spec:
   commonMetadata:
     labels:
@@ -30,7 +30,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app rook-ceph-cluster
-  namespace: &namespace rook-ceph
+  namespace: &namespace flux-system
 spec:
   commonMetadata:
     labels:
