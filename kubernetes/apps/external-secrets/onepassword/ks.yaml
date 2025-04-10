@@ -3,11 +3,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: onepassword-secret # Nytt, dedikert navn
+  name: onepassword-secret
   namespace: external-secrets
 spec:
   interval: 30m
-  path: ./kubernetes/apps/external-secrets/onepassword/secret # Ny sti
+  path: ./kubernetes/apps/external-secrets/onepassword/secret
   prune: true
   sourceRef:
     kind: GitRepository
@@ -16,10 +16,10 @@ spec:
   targetNamespace: external-secrets
   timeout: 1m 
   wait: true
-  decryption: # Viktig for SOPS
-    provider: sops
-    secretRef:
-      name: sops-age 
+  # decryption:
+  #   provider: sops
+  #   secretRef:
+  #     name: sops-age 
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.ok8.sh/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
