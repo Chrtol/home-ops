@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.ok8.sh/helm.toolkit.fluxcd.io/helmrelease_v2.json
+# yaml-language-server: $schema=https://k8s-schemas-cjso.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -9,6 +9,7 @@ spec:
   chartRef:
     kind: OCIRepository
     name: external-secrets
+    namespace: flux-system
   install:
     remediation:
       retries: 3
@@ -22,19 +23,19 @@ spec:
     replicaCount: 1
     leaderElect: true
     image:
-      repository: ghcr.io/external-secrets/external-secrets
-    serviceMonitor:
-      enabled: true
-      interval: 1m
+      repository: &repo ghcr.io/external-secrets/external-secrets
     webhook:
       image:
-        repository: ghcr.io/external-secrets/external-secrets
+        repository: *repo
       serviceMonitor:
         enabled: true
         interval: 1m
     certController:
       image:
-        repository: ghcr.io/external-secrets/external-secrets
+        repository: *repo
       serviceMonitor:
         enabled: true
         interval: 1m
+    serviceMonitor:
+      enabled: true
+      interval: 1m
