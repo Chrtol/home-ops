@@ -5,3 +5,7 @@ kind: Kustomization
 resources:
   - ./bjws.yaml
   - ./oci-external-dns.yaml
+  - ./external-secrets.yaml
+  - ./onepassword-connect.yaml
+  - ./rook-ceph-cluster.yaml
+  - ./rook-ceph.yaml
