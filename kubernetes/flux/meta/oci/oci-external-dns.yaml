@@ -1,11 +1,12 @@
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1beta2.json
+---
+# yaml-language-server: $schema=https://k8s-schemas-cjso.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1beta2.json
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
 metadata:
   name: external-dns
-  namespace: network
+  namespace: flux-system
 spec:
-  interval: 5m
+  interval: 15m
   layerSelector:
     mediaType: application/vnd.cncf.helm.chart.content.v1.tar+gzip
     operation: copy
@@ -15,5 +16,5 @@ spec:
   verify:
     provider: cosign
     matchOIDCIdentity:
-      - issuer: "^https://token.actions.githubusercontent.com$"
-        subject: "^https://github.com/home-operations/charts-mirror.*$"
+      - issuer: '^https://token.actions.githubusercontent.com$'
+        subject: '^https://github.com/home-operations/charts-mirror.*$'
