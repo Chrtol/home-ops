@@ -34,7 +34,7 @@ spec:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: rook-ceph
-      namespace: network
+      namespace: kube-system
   path: ./kubernetes/apps/rook-ceph/rook-ceph/cluster
   prune: false # never deleted
   sourceRef:
@@ -59,7 +59,7 @@ spec:
       app.kubernetes.io/name: internal-ingress
   dependsOn:
     - name: cilium-crd
-      namespace: network
+      namespace: kube-system
   path: ./kubernetes/apps/rook-ceph/rook-ceph/ingress
   prune: true
   sourceRef:
