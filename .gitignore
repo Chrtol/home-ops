@@ -20,4 +20,4 @@ talosconfig
 .DS_Store
 Thumbs.db
 cloudflare-tunnel.json.old
-1password-credentials*.json
+1password-credentials*

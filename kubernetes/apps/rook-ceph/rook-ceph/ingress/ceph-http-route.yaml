@@ -1,17 +1,22 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json
+# yaml-language-server: $schema=https://k8s-schemas-cjso.pages.dev/gateway.networking.k8s.io/httproute_v1.json
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: rook-ceph-dashboard
+  name: ceph-dashboard
+  namespace: rook-ceph
+  labels:
+    route-label: external-dns-internal
 spec:
-  hostnames: ["rook.cftollefsen.com"]
   parentRefs:
-    - name: internal
-      namespace: kube-system
-      sectionName: https
+    - name: internal-gateway
+      namespace: network
+      sectionName: ceph-dashboard
   rules:
-    - backendRefs:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
         - name: rook-ceph-mgr-dashboard
-          namespace: rook-ceph
-          port: 7000
+          port: 8080
