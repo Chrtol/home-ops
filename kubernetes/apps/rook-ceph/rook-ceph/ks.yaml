@@ -10,7 +10,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./cluster/kubernetes/apps/rook-ceph/rook-ceph/app
+  path: ./kubernetes/apps/rook-ceph/rook-ceph/app
   prune: false # never deleted
   sourceRef:
     kind: GitRepository
@@ -34,7 +34,7 @@ spec:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: rook-ceph
-  path: ./cluster/kubernetes/apps/rook-ceph/rook-ceph/cluster
+  path: ./kubernetes/apps/rook-ceph/rook-ceph/cluster
   prune: false # never deleted
   sourceRef:
     kind: GitRepository
@@ -58,7 +58,7 @@ spec:
       app.kubernetes.io/name: internal-ingress
   dependsOn:
     - name: cilium-crd
-  path: ./cluster/kubernetes/apps/rook-ceph/rook-ceph/ingress
+  path: ./kubernetes/apps/rook-ceph/rook-ceph/ingress
   prune: true
   sourceRef:
     kind: GitRepository
