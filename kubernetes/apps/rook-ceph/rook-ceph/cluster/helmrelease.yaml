@@ -50,9 +50,10 @@ spec:
         urlPrefix: /
         port: 7000
         ssl: false
-      # network:
-      #   connections:
-      #     requireMsgr2: true
+      network:
+        provider: host
+        connections:
+          requireMsgr2: true
       resources:
         mgr:
           requests:
