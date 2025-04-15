@@ -106,7 +106,7 @@ spec:
       storage:
         useAllNodes: true
         useAllDevices: true
-        deviceFilter: sda
+        devicePathFilter: /dev/sda 
         config:
           osdsPerDevice: '1'
     cephBlockPools:
