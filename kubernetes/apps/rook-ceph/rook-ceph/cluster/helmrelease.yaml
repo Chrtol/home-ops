@@ -34,6 +34,15 @@ spec:
         count: 3
         allowMultiplePerNode: false
       mgr:
+        modules:
+            - name: diskprediction_local
+              enabled: true
+            - name: insights
+              enabled: true
+            - name: pg_autoscaler
+              enabled: true
+            - name: rook
+              enabled: true
         count: 2
         allowMultiplePerNode: false
       dashboard:
@@ -159,33 +168,33 @@ spec:
             csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
-    cephObjectStores:
-      - name: ceph-objectstore
-        spec:
-          metadataPool:
-            failureDomain: host
-            replicated:
-              size: 3
-          dataPool:
-            failureDomain: host
-            erasureCoded:
-              dataChunks: 2
-              codingChunks: 1
-          preservePoolsOnDelete: true
-          gateway:
-            port: 80
-            resources:
-              requests:
-                cpu: 100m
-                memory: 1Gi
-              limits:
-                memory: 2Gi
-            instances: 1
-            priorityClassName: system-cluster-critical
-        storageClass:
-          enabled: true
-          name: ceph-bucket
-          reclaimPolicy: Delete
-          volumeBindingMode: Immediate
-          parameters:
-            region: us-east-1
+    # cephObjectStores:
+    #   - name: ceph-objectstore
+    #     spec:
+    #       metadataPool:
+    #         failureDomain: host
+    #         replicated:
+    #           size: 3
+    #       dataPool:
+    #         failureDomain: host
+    #         erasureCoded:
+    #           dataChunks: 2
+    #           codingChunks: 1
+    #       preservePoolsOnDelete: true
+    #       gateway:
+    #         port: 80
+    #         resources:
+    #           requests:
+    #             cpu: 100m
+    #             memory: 1Gi
+    #           limits:
+    #             memory: 2Gi
+    #         instances: 1
+    #         priorityClassName: system-cluster-critical
+    #     storageClass:
+    #       enabled: true
+    #       name: ceph-bucket
+    #       reclaimPolicy: Delete
+    #       volumeBindingMode: Immediate
+    #       parameters:
+    #         region: us-east-1
