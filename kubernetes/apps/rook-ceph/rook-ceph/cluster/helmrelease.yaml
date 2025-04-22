@@ -34,7 +34,7 @@ spec:
   values:
     monitoring:
       enabled: true
-      createPrometheusRules: true
+      # createPrometheusRules: true
     toolbox:
       enabled: true
     cephClusterSpec:
