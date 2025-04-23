@@ -105,7 +105,7 @@ spec:
             memory: 128Mi
       storage:
         useAllNodes: true
-        useAllDevices: true
+        useAllDevices: false
         devicePathFilter: /dev/sda 
         config:
           osdsPerDevice: '1'
